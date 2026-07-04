@@ -8,7 +8,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.security.MessageDigest;
+			// Sanitize the path to prevent directory traversal
+			String secureBaseDir = "/var/data/downloads/"; // Define a secure base directory
+			File downloadFile = new File(secureBaseDir, new File(path).getName());
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
